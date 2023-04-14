@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet(urlPatterns= "/remote")
 public class EjbSessionPocRemoteServlet extends HttpServlet{
@@ -25,6 +26,12 @@ public class EjbSessionPocRemoteServlet extends HttpServlet{
       response.setStatus(HttpServletResponse.SC_OK);
       response.getWriter().write("resultado: " + ejb.result());
       response.getWriter().flush();
+      try {
+        ejb.insertDb(ejb.result());
+      }
+      catch (SQLException e){
+        e.printStackTrace();;
+      }
     }
     
 }
