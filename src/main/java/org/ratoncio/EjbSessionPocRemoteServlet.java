@@ -1,13 +1,14 @@
 package org.ratoncio;
 
-import javax.servlet.annotation.WebServlet;
+import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.ejb.EJB;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.ServletException;
-import java.io.IOException;
-import java.sql.SQLException;
 
 @WebServlet(urlPatterns= "/remote")
 public class EjbSessionPocRemoteServlet extends HttpServlet{
@@ -20,17 +21,21 @@ public class EjbSessionPocRemoteServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-      ejb.increment(2);
-      //response.getWriter().append(ejb.result());
-      response.setContentType("text/plain");
-      response.setStatus(HttpServletResponse.SC_OK);
-      response.getWriter().write("resultado: " + ejb.result());
-      response.getWriter().flush();
       try {
-        ejb.insertDb(ejb.result());
+
+        ejb.increment(2);
+        response.setContentType("text/plain");
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.getWriter().write("\nresultado: " + ejb.result());
+        response.getWriter().write("\n");
+        response.getWriter().flush();
+        //ejb.insertDb(ejb.result());
       }
-      catch (SQLException e){
-        e.printStackTrace();;
+      //catch (SQLException e){
+      //  e.printStackTrace();;
+      //}
+      catch (Exception ex){
+        ex.printStackTrace();
       }
     }
     

@@ -5,14 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Connection;
 
-//import javax.ejb.LocalBean;
-import javax.ejb.Stateful;
+import javax.ejb.Stateless;
+import javax.ejb.SessionContext;
+import javax.enterprise.context.SessionScoped;
 
-/**
- * Session Bean implementation class EjbSessionPoc
- */
-@Stateful(mappedName="EjbBean", name = "EjbBean")
-public class EjbSessionPocBean implements EjbSessionPocRemote, EjbSessionPocLocal, EjbSessionPocStatelessLocal {
+
+@Stateless(mappedName="EjbBeanStateless", name = "EjbBeanStateless")
+public class EjbSessionPocStatelessBean implements EjbSessionPocRemote, EjbSessionPocLocal {
 
 	private int cont;
     private final String url = "jdbc:postgresql://postgresql/ejb-app";
@@ -20,7 +19,7 @@ public class EjbSessionPocBean implements EjbSessionPocRemote, EjbSessionPocLoca
     private final String password = "admin";
     private final String INSERT_SQL = "INSERT INTO datos(contador) " + "VALUES(?)";
 	
-    public EjbSessionPocBean() {
+    public EjbSessionPocStatelessBean() {
     	super();
     	cont = 0;
     }
