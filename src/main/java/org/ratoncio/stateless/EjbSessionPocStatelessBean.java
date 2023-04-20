@@ -1,4 +1,4 @@
-package org.ratoncio;
+package org.ratoncio.stateless;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,6 +8,9 @@ import java.sql.Connection;
 import javax.ejb.Stateless;
 import javax.ejb.SessionContext;
 import javax.enterprise.context.SessionScoped;
+
+import org.ratoncio.stateful.EjbSessionPocLocal;
+import org.ratoncio.stateful.EjbSessionPocRemote;
 
 
 @Stateless(mappedName="EjbBeanStateless", name = "EjbBeanStateless")

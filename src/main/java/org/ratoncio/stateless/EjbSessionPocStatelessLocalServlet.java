@@ -1,4 +1,4 @@
-package org.ratoncio;
+package org.ratoncio.stateless;
 
 import javax.servlet.annotation.WebServlet;
 import javax.ejb.EJB;
@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
-@WebServlet(urlPatterns= "/local")
-public class EjbSessionPocLocalServlet extends HttpServlet{
+@WebServlet(urlPatterns= "/stateless-local")
+public class EjbSessionPocStatelessLocalServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
-    @EJB(beanName = "EjbSessionLocalPoc")
-    private EjbSessionPocLocal ejb;
+    @EJB(beanName = "EjbSessionStatelessLocalPoc")
+    private EjbSessionPocStatelessLocal ejb;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

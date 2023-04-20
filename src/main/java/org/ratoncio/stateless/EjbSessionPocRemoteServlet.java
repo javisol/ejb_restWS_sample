@@ -1,4 +1,4 @@
-package org.ratoncio;
+package org.ratoncio.stateless;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -9,6 +9,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.ratoncio.stateful.EjbSessionPocRemote;
 
 @WebServlet(urlPatterns= "/remote")
 public class EjbSessionPocRemoteServlet extends HttpServlet{

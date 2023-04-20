@@ -1,4 +1,4 @@
-package org.ratoncio;
+package org.ratoncio.stateful;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -12,7 +12,7 @@ import javax.ejb.Stateful;
  * Session Bean implementation class EjbSessionPoc
  */
 @Stateful(mappedName="EjbBean", name = "EjbBean")
-public class EjbSessionPocBean implements EjbSessionPocRemote, EjbSessionPocLocal, EjbSessionPocStatelessLocal {
+public class EjbSessionPocBean implements EjbSessionPocRemote, EjbSessionPocLocal {
 
 	private int cont;
     private final String url = "jdbc:postgresql://postgresql/ejb-app";

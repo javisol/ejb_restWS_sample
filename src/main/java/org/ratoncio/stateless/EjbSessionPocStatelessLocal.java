@@ -1,4 +1,4 @@
-package org.ratoncio;
+package org.ratoncio.stateless;
 
 import javax.ejb.Local;
 
