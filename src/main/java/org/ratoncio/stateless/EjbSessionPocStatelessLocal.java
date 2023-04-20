@@ -7,5 +7,5 @@ public interface EjbSessionPocStatelessLocal {
     public void increment(int num);
 
     public int result();
-    
+
 }
