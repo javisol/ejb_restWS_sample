@@ -1,4 +1,4 @@
-package com.demo.rest;
+package org.ratoncio.rest;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
