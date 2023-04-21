@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
 import java.io.IOException;
 
-@WebServlet(urlPatterns= "/stateless-local")
+@WebServlet(urlPatterns= "/stateless")
 public class EjbSessionPocStatelessLocalServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
