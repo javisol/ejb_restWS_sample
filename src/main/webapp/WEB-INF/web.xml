@@ -10,7 +10,7 @@
   <!--
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>com.demo.rest.HelloRest</servlet-class>
+    <servlet-class>org.ratoncio.rest.HelloRest</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
