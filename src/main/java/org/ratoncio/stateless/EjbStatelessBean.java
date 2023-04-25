@@ -2,12 +2,12 @@ package org.ratoncio.stateless;
 
 import javax.ejb.Stateless;
 
-@Stateless(mappedName="EjbBeanStateless", name = "EjbBeanStateless")
-public class EjbSessionPocStatelessBean implements  EjbSessionPocStatelessLocal {
+@Stateless(mappedName="EjbStatelessBean", name = "EjbStatelessBean")
+public class EjbStatelessBean implements  EjbStatelessLocal {
 
 	private int cont;
 	
-    public EjbSessionPocStatelessBean() {
+    public EjbStatelessBean() {
     	super();
     	cont = 0;
     }

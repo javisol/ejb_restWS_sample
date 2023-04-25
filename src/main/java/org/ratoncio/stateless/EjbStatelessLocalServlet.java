@@ -9,12 +9,12 @@ import javax.servlet.ServletException;
 import java.io.IOException;
 
 @WebServlet(urlPatterns= "/stateless")
-public class EjbSessionPocStatelessLocalServlet extends HttpServlet{
+public class EjbStatelessLocalServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
     @EJB(beanName = "EjbSessionStatelessLocalPoc")
-    private EjbSessionPocStatelessLocal ejb;
+    private EjbStatelessLocal ejb;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

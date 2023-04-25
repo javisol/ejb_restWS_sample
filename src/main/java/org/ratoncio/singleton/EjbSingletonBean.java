@@ -13,7 +13,7 @@ import java.sql.Connection;
  * Session Bean implementation class EjbSessionPoc
  */
 @Singleton(mappedName="EjbSingletonBean", name = "EjbSingletonBean")
-public class EjbSessionPocSingletonBean implements EjbSessionPocSingletonRemote {
+public class EjbSingletonBean implements EjbSingletonRemote {
 
 	private int cont;
     private final String url = "jdbc:postgresql://postgresql/ejb-app";
@@ -21,7 +21,7 @@ public class EjbSessionPocSingletonBean implements EjbSessionPocSingletonRemote 
     private final String password = "admin";
     private final String INSERT_SQL = "INSERT INTO datos(contador) " + "VALUES(?)";
 	
-    public EjbSessionPocSingletonBean() {
+    public EjbSingletonBean() {
     	super();
     	cont = 0;
     }

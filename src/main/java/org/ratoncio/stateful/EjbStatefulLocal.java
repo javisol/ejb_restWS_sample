@@ -1,11 +1,11 @@
-package org.ratoncio.stateless;
+package org.ratoncio.stateful;
 
 import javax.ejb.Local;
 
 @Local
-public interface EjbSessionPocStatelessLocal {
+public interface EjbStatefulLocal {
     public void increment(int num);
 
     public int result();
-
+    
 }

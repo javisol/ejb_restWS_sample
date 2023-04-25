@@ -7,7 +7,6 @@
   <welcome-file-list>
       <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-  <!--
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>org.ratoncio.rest.HelloRest</servlet-class>
@@ -16,6 +15,7 @@
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
+  <!--
   <servlet>
     <servlet-name>EJBSessionServlet</servlet-name>
     <servlet-class>org.ratoncio.EjbSessionServlet</servlet-class>

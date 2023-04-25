@@ -11,8 +11,8 @@ import javax.ejb.Stateful;
 /**
  * Session Bean implementation class EjbSessionPoc
  */
-@Stateful(mappedName="EjbBean", name = "EjbBean")
-public class EjbSessionPocBean implements EjbSessionPocRemote, EjbSessionPocLocal {
+@Stateful(mappedName="EjbStatefulBean", name = "EjbStatefulBean")
+public class EjbStatefulBean implements EjbStatefulRemote, EjbStatefulLocal {
 
 	private int cont;
     private final String url = "jdbc:postgresql://postgresql/ejb-app";
@@ -20,7 +20,7 @@ public class EjbSessionPocBean implements EjbSessionPocRemote, EjbSessionPocLoca
     private final String password = "admin";
     private final String INSERT_SQL = "INSERT INTO datos(contador) " + "VALUES(?)";
 	
-    public EjbSessionPocBean() {
+    public EjbStatefulBean() {
     	super();
     	cont = 0;
     }
