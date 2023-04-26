@@ -2,7 +2,7 @@ package org.ratoncio.stateless;
 
 import javax.ejb.Stateless;
 
-@Stateless(mappedName="EjbStatelessBean", name = "EjbStatelessBean")
+@Stateless //(mappedName="EjbStatelessBean", name = "EjbStatelessBean")
 public class EjbStatelessBean implements  EjbStatelessLocal {
 
 	private int cont;

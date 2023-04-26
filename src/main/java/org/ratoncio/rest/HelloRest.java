@@ -11,7 +11,7 @@ import javax.ws.rs.core.Response;
 @Produces(MediaType.TEXT_PLAIN) 
 //@Produces(MediaType.APPLICATION_JSON) 
 //@Consumes(MediaType.APPLICATION_JSON) 
-public class HelloRest {
+public class HelloRest extends javax.servlet.http.HttpServlet{
 
     @GET  
     public Response sayHello() {

@@ -13,18 +13,23 @@ public class EjbStatelessLocalServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
-    @EJB(beanName = "EjbSessionStatelessLocalPoc")
+    @EJB //(beanName = "EjbStatelessLocalPoc")
     private EjbStatelessLocal ejb;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-      ejb.increment(2);
-      //response.getWriter().append(ejb.result());
-      response.setContentType("text/plain");
-      response.setStatus(HttpServletResponse.SC_OK);
-      response.getWriter().write("resultado: " + ejb.result());
-      response.getWriter().flush();
+      try {
+        ejb.increment(2);
+        response.setContentType("text/plain");
+        response.setStatus(HttpServletResponse.SC_OK);
+        response.getWriter().write("resultado: " + ejb.result());
+        response.getWriter().write("\n");
+        response.getWriter().flush();
+      }
+      catch (Exception ex){
+        ex.printStackTrace();
+      }
     }
     
 }

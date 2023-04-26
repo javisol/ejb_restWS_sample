@@ -27,15 +27,15 @@
     </featureManager>
 
     <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
-    <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="9080" httpsPort="9443"/>
+    <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="19080" httpsPort="19443"/>
 
     <!-- Default SSL configuration enables trust for default certificates from the Java runtime --> 
     <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="defaultTrustStore" trustDefaultCerts="true" clientAuthenticationSupported="true"/>
 
     <keyStore id="defaultKeyStore" password="diamigoyentra"/>
 
-    <iiopEndpoint id="defaultIiopEndpoint" host="192.168.0.190" iiopPort="2809">
-         <iiopsOptions iiopsPort="2810" sslRef="defaultSSLConfig" suppressHandshakeErrors="true"/>
+    <iiopEndpoint id="defaultIiopEndpoint" host="192.168.0.190" iiopPort="12809">
+         <iiopsOptions iiopsPort="12810" sslRef="defaultSSLConfig" suppressHandshakeErrors="true"/>
     </iiopEndpoint>
 
     <dataSource id="postgresql" jndiName="jdbc/openlibertydb">
@@ -76,10 +76,10 @@
     <messagingEngine>
         <queue id="cola01"/>
     </messagingEngine>
-    <wasJmsEndpoint host="*" wasJmsPort="7276" wasJmsSSLPort="7286"/>
+    <wasJmsEndpoint host="*" wasJmsPort="17276" wasJmsSSLPort="17286"/>
 
     <jmsQueueConnectionFactory jndiName="jms/JmsFactory">
-        <properties.wasJms remoteServerAddress="localhost:7276:BootStrapBasicMessaging"/>
+        <properties.wasJms remoteServerAddress="localhost:17276:BootStrapBasicMessaging"/>
     </jmsQueueConnectionFactory>
 
     <jmsQueue id="simpleJmsQueue" jndiName="jms/JmsQueue">

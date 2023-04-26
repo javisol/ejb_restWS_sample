@@ -1,8 +1,6 @@
 package org.ratoncio.stateful;
 
 import java.io.IOException;
-//import java.sql.SQLException;
-
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +13,7 @@ public class EjbStatefulRemoteServlet extends HttpServlet{
 
     private static final long serialVersionUID = 1L;
 
-    @EJB(beanName = "EjbSessionRemotePoc")
+    @EJB //(beanName = "EjbSessionRemotePoc")
     private EjbStatefulRemote ejb;
 
     @Override
@@ -29,11 +27,7 @@ public class EjbStatefulRemoteServlet extends HttpServlet{
         response.getWriter().write("\nresultado: " + ejb.result());
         response.getWriter().write("\n");
         response.getWriter().flush();
-        //ejb.insertDb(ejb.result());
       }
-      //catch (SQLException e){
-      //  e.printStackTrace();;
-      //}
       catch (Exception ex){
         ex.printStackTrace();
       }

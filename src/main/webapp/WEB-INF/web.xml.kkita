@@ -10,20 +10,23 @@
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>org.ratoncio.rest.HelloRest</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
+  <!--
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
-  <!--
+  -->
   <servlet>
-    <servlet-name>EJBSessionServlet</servlet-name>
-    <servlet-class>org.ratoncio.EjbSessionServlet</servlet-class>
+    <servlet-name>EJBStatefulServlet</servlet-name>
+    <servlet-class>org.ratoncio.stateful.EjbStatefulRemoteServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
+  <!--
   <servlet-mapping>
-    <servlet-name>EJBSessionServlet</servlet-name>
-    <url-pattern>/ejb</url-pattern>
+    <servlet-name>EJBStatefulServlet</servlet-name>
+    <url-pattern>/stateful</url-pattern>
   </servlet-mapping>
   -->
 
