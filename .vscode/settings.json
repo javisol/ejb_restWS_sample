@@ -4,5 +4,8 @@
     "files.autoSave": "afterDelay",
     "java.semanticHighlighting.enabled": true,
     "java.jdt.ls.vmargs": "",
-    "java.import.gradle.jvmArguments": ""
+    "java.import.gradle.jvmArguments": "",
+    "xml.java.home": "/usr/lib/jvm/java-17-openjdk-amd64",
+    "java.configuration.updateBuildConfiguration": "interactive"
+
 }
