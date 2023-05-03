@@ -36,5 +36,22 @@ public class EjbEntityManagerLocalServlet extends HttpServlet{
         }
 
     }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        try{
+            String petName = request.getParameter("name");
+            EjbEntityBean pet = new EjbEntityBean();
+            pet.setName(petName);
+            ejb.addPet(pet);
+            response.setContentType("text/plain");
+            response.setStatus(HttpServletResponse.SC_OK);
+            response.getWriter().write(petName + " added\n");
+            response.getWriter().flush();
+ 
+        } catch (Exception ex){
+            ex.printStackTrace();
+        }
+    }
     
 }

@@ -5,13 +5,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class EjbEntityManager implements EjbEntityManagerRemote{
+public class EjbEntityManager {
     @PersistenceContext(unitName = "ejb-entity")
     private EntityManager entityManager;
-
-    public void addPet(EjbEntityBean pet){
-        entityManager.persist(pet);
-    }
 
     public EjbEntityBean getPetById(int id){
         return entityManager.find(EjbEntityBean.class, id);
@@ -19,6 +15,10 @@ public class EjbEntityManager implements EjbEntityManagerRemote{
     
     public EjbEntityBean getPetByName(String name){
         return entityManager.find(EjbEntityBean.class, name);
+    }
+
+    public void addPet(EjbEntityBean pet){
+        entityManager.persist(pet);
     }
 
     public void updatePet(EjbEntityBean pet){
