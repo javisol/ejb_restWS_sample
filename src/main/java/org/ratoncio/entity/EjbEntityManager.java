@@ -5,7 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 @Stateless
-public class EjbEntityManager {
+public class EjbEntityManager implements EjbEntityManagerRemote{
     @PersistenceContext(unitName = "ejb-entity")
     private EntityManager entityManager;
 
