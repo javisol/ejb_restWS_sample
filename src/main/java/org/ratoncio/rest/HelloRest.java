@@ -15,6 +15,6 @@ public class HelloRest extends javax.servlet.http.HttpServlet{
 
     @GET  
     public Response sayHello() {
-        return Response.ok("Hello World desde el API REST",MediaType.TEXT_PLAIN).build();   
+        return Response.ok("Hello World desde el API REST\n",MediaType.TEXT_PLAIN).build();   
     } 
 }
