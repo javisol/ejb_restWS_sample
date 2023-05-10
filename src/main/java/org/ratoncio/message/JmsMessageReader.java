@@ -7,7 +7,7 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
-@MessageDriven(mappedName="read",
+@MessageDriven(
   activationConfig = {
     @ActivationConfigProperty(propertyName = "destination",
       propertyValue = "jms/JmsQueue"),
