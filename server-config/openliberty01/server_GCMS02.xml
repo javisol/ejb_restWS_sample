@@ -30,7 +30,7 @@
     <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="19080" httpsPort="19443"/>
 
     <!-- Default SSL configuration enables trust for default certificates from the Java runtime --> 
-    <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="defaultTrustStore" trustDefaultCerts="true" clientAuthenticationSupported="true"/>
+    <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="defaultTrustStore" trustDefaultCerts="true" clientAuthenticationSupported="true" clientAuthentication="false"/>
 
     <keyStore id="defaultKeyStore" password="diamigoyentra"/>
 
@@ -40,7 +40,7 @@
 
     <dataSource id="postgresql" jndiName="jdbc/openlibertydb">
         <jdbcDriver libraryRef="PostgreSQLLib"/>
-        <properties databaseName="openlibertydb" serverName="postgresql" portNumber="5432" user="postgres" password="admin"/>
+        <properties databaseName="ejb-app" serverName="postgresql" portNumber="5432" user="postgres" password="admin"/>
     </dataSource>
 
     <library id="PostgreSQLLib">

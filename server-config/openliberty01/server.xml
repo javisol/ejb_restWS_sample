@@ -30,17 +30,35 @@
     <httpEndpoint id="defaultHttpEndpoint" host="*" httpPort="9080" httpsPort="9443"/>
 
     <!-- Default SSL configuration enables trust for default certificates from the Java runtime --> 
-    <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="defaultTrustStore" trustDefaultCerts="true" clientAuthenticationSupported="true"/>
+    <ssl id="defaultSSLConfig" keyStoreRef="defaultKeyStore" trustStoreRef="defaultTrustStore" trustDefaultCerts="true" clientAuthenticationSupported="true" clientAuthentication="false"/>
 
-    <keyStore id="defaultKeyStore" password="diamigoyentra"/>
+    <!--<keyStore id="defaultKeyStore" password="diamigoyentra"/>-->
+    <keyStore id="defaultKeyStore" password="{xor}OzY+MjY4MCY6MSstPg==" />
 
     <iiopEndpoint id="defaultIiopEndpoint" host="192.168.0.190" iiopPort="2809">
          <iiopsOptions iiopsPort="2810" sslRef="defaultSSLConfig" suppressHandshakeErrors="true"/>
     </iiopEndpoint>
 
+    <orb id="defaultOrb" nameService="corbaname::192.168.0.190:2809">
+        <serverPolicy.csiv2>
+            <layers>
+                <attributeLayer identityAssertionEnabled="false"/>
+                <authenticationLayer mechanisms="LTPA,GSSUP" establishTrustInClient="Supported"/>
+                <transportLayer sslRef="defaultSSLConfig"/>
+            </layers>
+        </serverPolicy.csiv2>
+        <clientPolicy.csiv2>
+            <layers>
+                <attributeLayer identityAssertionEnabled="false"/>
+                <authenticationLayer mechanisms="LTPA,GSSUP" establishTrustInClient="Supported"/>
+                <transportLayer sslRef="defaultSSLConfig"/>
+            </layers>
+        </clientPolicy.csiv2>
+    </orb>
+
     <dataSource id="postgresql" jndiName="jdbc/openlibertydb">
         <jdbcDriver libraryRef="PostgreSQLLib"/>
-        <properties databaseName="openlibertydb" serverName="postgresql" portNumber="5432" user="postgres" password="admin"/>
+        <properties databaseName="ejb-app" serverName="postgresql" portNumber="5432" user="postgres" password="admin"/>
     </dataSource>
 
     <library id="PostgreSQLLib">
@@ -85,5 +103,9 @@
     <jmsQueue id="simpleJmsQueue" jndiName="jms/JmsQueue">
         <properties.wasJms queueName="cola01"/>
     </jmsQueue>
+
+    <jmsActivationSpec  id="ejb-app/JmsMessageReader" >
+        <properties.wasJms destinationRef="jms/JmsQueue"/>
+    </jmsActivationSpec>
 
  </server>
