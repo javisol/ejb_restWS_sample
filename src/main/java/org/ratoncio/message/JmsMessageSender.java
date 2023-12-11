@@ -39,6 +39,7 @@ public class JmsMessageSender extends HttpServlet{
       message = session.createTextMessage();
       message.setText(text);
       this.producer.send(message);
+      this.session.close();
 
     } catch (JMSException e) {
       e.printStackTrace();
