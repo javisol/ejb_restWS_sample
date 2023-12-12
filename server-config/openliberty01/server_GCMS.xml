@@ -100,12 +100,19 @@
         <properties.activemq serverURL="failover:(tcp://openliberty01:61616,tcp://openliberty02:61616)?timeout=3000" />
     </jmsConnectionFactory>
 
-    <jmsQueue id="JmsQueueId" jndiName="jms/JmsQueue">
+    <jmsQueue id="JmsQueue" jndiName="jms/JmsQueue">
         <properties.activemq physicalName="JmsQueue"/>
     </jmsQueue>
 
-    <jmsActivationSpec id="ejb-app/JmsMessageReader">
+    <jmsActivationSpec id="ejb-app/JmsMessageReaderMDB">
+        <properties.activemq />
+    </jmsActivationSpec>
+
+    <!-- for unannotated MDB
+    <jmsActivationSpec id="JmsMessageReaderAS">
         <properties.activemq destinationType="javax.jms.Queue" destination="JmsQueue"/>
     </jmsActivationSpec>
+    -->
+
 
  </server>
