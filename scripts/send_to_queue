@@ -1,0 +1,21 @@
+#!/bin/bash
+TIMER=0s #delay in seconds between message send
+#SERVER_BASE="openliberty0"
+SERVER_BASE="192.168.56.10"
+QUEUE="JmsQueue"
+
+if [ $# -ne 1 ];then
+    echo "insert a number of messages to sends"
+    exit 1
+fi
+CONT=$1;
+
+for i in `seq 1 $CONT`;do 
+    RANDOM_SERVER=$(shuf -i 1-2 -n 1)
+    SERVER=$SERVER_BASE$RANDOM_SERVER
+    BODY="test0$i sent to $SERVER"
+    curl -u admin:admin -d "body=$BODY" "http://$SERVER:8161/api/message/$QUEUE?type=queue"
+    echo " \"$BODY\" to $SERVER"
+    sleep $TIMER
+done
+
